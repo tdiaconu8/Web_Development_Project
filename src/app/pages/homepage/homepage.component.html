@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <app-header></app-header>
+    <div class="container-fluid">
+      <div class="row" id="searchPlace">
+        <div class="col-2 col-sm-1 offset-sm-3"><img src="../../../assets/images/add.png" alt="edit" id="add"
+          (click)="addPlace()"></div>
+        <div class="col-8 col-sm-4"><input type="text" placeholder="   Search your place..." id="inputSearch" name="searchName" 
+          [(ngModel)] = "searchName" (keyup) = "searchFilter(searchName)"></div>
+        <div class="col-2 col-sm-1"><img src="../../../assets/images/search.png" alt="edit" id="search" routerLink=''></div>
+      </div>
+    </div>
+  <div class="row" id="preview">
+    <div class="col-sm-3">
+      <aside id="order">
+        <div id="markDesc">
+          <input type="checkbox" (click)="orderMarkDesc()"> 
+          <span>Order by Mark descedent</span>
+        </div>
+        <div id="markDesc">
+          <input type="checkbox" (click)="orderPricekDesc()"> 
+          <span>Order by Price descedent</span>
+        </div>
+        <article id="site-description">
+          <p id="description-title">
+            About Check The Place:
+          </p>
+          <p>
+            This platform is a project done in Eurecom ! This website is a collaborative platform where students 
+            can share places they visited.
+          </p>
+          <p>
+            We really hope that you will enjoy this app, and that it will help you to have a better student life ! Go check bars
+            and nightclubs, there are waiting for you !
+          </p>
+          <p>
+            Note about prices range:
+          </p>
+            <ul>
+              <li>€ means that it's free</li>
+              <li>€€: between 0 - 10 euros</li>
+              <li>€€€: between 10 - 20 euros</li>
+              <li>€€€€: up to 20 euros</li>
+            </ul>
+        </article>
+      </aside>
+    </div>
+    <div class="col-sm-6">
+
+      <div id="placeBlock" *ngFor="let place of placesFiltered" name='place' [routerLink] = "['place/', place.id]">
+        <div class="row">
+            <div class="col-sm-9">
+              <div id="infos">
+                <div id="title">{{place.Name}}</div>
+                <p>{{place.Address_number}} {{place.Address_street}}
+                    <span id="address-end">{{place.Address_postcode}} {{place.Address_city}}</span>
+                </p>
+                <p>{{place.Description}}</p>
+              </div>
+            </div>
+            <div class="col-sm-3">
+                <p><img src="{{place.image}}" alt="" id="placePhoto"></p>
+                <div id="mark">
+                  <ngb-rating rate= {{mark(place.Mark)}}></ngb-rating>
+                  {{getPriceIcon(place.price_level)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-sm-3">
+      <aside>
+        <ngx-twitter-timeline
+            [data]="{sourceType: 'url', url: 'https://twitter.com/eurecom?lang=fr'}"
+            [opts]="{tweetLimit: 3}"></ngx-twitter-timeline>
+      </aside>
+    </div>
+  </div>
+    <footer id="footer">
+      <app-footer></app-footer>
+    </footer>
+  </div>
+  
+  

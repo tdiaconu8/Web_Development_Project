@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['']">
+    <img src="../../../assets/images/logo.png" alt="edit" id="img">
+  </a>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+    <a class="nav-item nav-link" [routerLink]="['/restaurants']">Restaurants</a>
+    <a class="nav-item nav-link" [routerLink]="['/bars']">Bars/Nightclubs</a>
+    <a class="nav-item nav-link" [routerLink]="['/museums']">Museums</a>
+    <a class="nav-item nav-link" [routerLink]="['/landscapes']">Landscapes</a>
+    <a class="nav-item nav-link" [routerLink]="['/others']">Others</a>
+</div>
+<div class="div" *ngIf="notConnected">
+  <input id="usermail" type="text" name="usermail" required placeholder="   Enter mail..." [(ngModel)] = "usermail">
+  <input id="password" type="password" name="password" required placeholder="   Enter password..." [(ngModel)] = "password">
+  <button (click) = "login()">LOGIN</button>
+  <span [routerLink]="['/register']" id="registerClick">Register now for free</span>
+</div>
+<div class="div" *ngIf="connected">
+  <img src="../../../assets/images/account.png" alt="" id="imgConnected">
+  <span> {{firstName}} {{Name}} </span>
+  <img src="../../../assets/images/logout.png" (click)="logOut()" alt="" id="imgLogOut">
+</div>
+</nav>

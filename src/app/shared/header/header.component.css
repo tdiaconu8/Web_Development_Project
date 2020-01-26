@@ -1,0 +1,54 @@
+.navbar{
+    border-radius: 0px;
+    z-index: 200;
+    /* width: auto; */
+    background-color: white;
+    border: none;
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+#content {
+    display: inline-block;
+}
+
+#img {
+    width: 70px;
+}
+
+#mailInput {
+    margin-right: 5px;
+}
+
+#passwordInput {
+    margin-right: 5px;
+}
+
+#login {
+    margin-right: 5px;
+}
+
+#registerClick {
+    display: block;
+    font-size: 12px;
+    color: blue;
+    text-decoration: underline;
+}
+
+#usermail {
+    margin-right: 10px;
+}
+
+#password {
+    margin-right: 10px;
+}
+
+#imgConnected {
+    height: 30px;
+    width: 30px;
+}
+
+#imgLogOut {
+    height: 20px;
+    width: 20px;
+}

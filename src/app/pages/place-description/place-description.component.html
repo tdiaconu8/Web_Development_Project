@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <app-header></app-header>
+<div class="row">
+    <div class="col-sm-4 offset-sm-2" *ngFor="let place of place">
+        <div id="title">{{place.Name}} / {{place.Type}} 
+            <ngb-rating rate= {{mark(place.Mark)}}>
+            </ngb-rating>
+        </div>
+        <div id="address">{{place.Address_number}} {{place.Address_street}} {{place.Address_postcode}} {{place.Address_city}}</div>
+        <div>{{place.Description}}</div>
+        <div id="image">
+            <img id="img" src="{{place.image}}" alt="">
+        </div>
+        <div id="commentBlock">
+            <span>Add a comment</span>
+            <textarea name="" id="textarea"></textarea>
+            <div id="buttons">
+                <button id="cancel" class="btn btn-outline-danger">Cancel</button>
+                <button id="add" class="btn btn-outline-success">Add comment</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="title">Comments</div>
+        <div *ngFor="let comment of comments" id="comment">
+            <div>{{comment.author}}</div>
+            <div>{{comment.time | date: 'dd-MM-yyyy'}} <ngb-rating rate= {{mark(comment.mark)}}></ngb-rating></div>
+            <div>{{comment.text}}</div>
+        </div>
+    </div>
+</div>
+</div>
